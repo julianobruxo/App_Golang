@@ -2,9 +2,13 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"time"
 )
 
+func welcome() {
+	fmt.Println("Welcome to my Quiz Game!\n Let's Start!\n What's your first name?")
+}
 func getUserData() {
 	var firstName string
 	var lastName string
@@ -23,6 +27,7 @@ func getUserData() {
 		fmt.Printf("Ok %v, your age is correct.\nThx for your confirmation.\nLet's start your Quiz :)\n", firstName)
 	} else {
 		fmt.Printf("Sorry %v, you're a minor and can't participate.", firstName)
+		os.Exit(0)
 	}
 }
 func questions() {
@@ -95,7 +100,7 @@ func questions() {
 }
 
 func main() {
-	fmt.Println("Welcome to my Quiz Game!\n Let's Start!\n What's your first name?")
+	welcome()
 	getUserData()
 	questions()
 
