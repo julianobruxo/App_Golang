@@ -26,6 +26,7 @@ func getUserData() {
 		time.Sleep(time.Second * 1)
 		fmt.Printf("Ok %v, your age is correct.\nThx for your confirmation.\nLet's start your Quiz :)\n", firstName)
 	} else {
+		time.Sleep(time.Second * 1)
 		fmt.Printf("Sorry %v, you're a minor and can't participate.", firstName)
 		os.Exit(0)
 	}
@@ -33,9 +34,9 @@ func getUserData() {
 func questions() {
 	score := 0
 	num_of_questions := 5
-
-	fmt.Printf("Which one is better, pizza(1) or sushi(2)?\n")
 	var answer int
+	//Question 1
+	fmt.Printf("Which one is better, pizza(1) or sushi(2)?\n")
 	fmt.Scan(&answer)
 
 	if answer == 1 {
@@ -44,6 +45,7 @@ func questions() {
 	} else {
 		fmt.Println("Hmm...I have some doubts about you...")
 	}
+	//Question 2
 	time.Sleep(time.Second * 1)
 	fmt.Printf("What's the Capital of Canada, Otawa(1) or Toronto(2)?\n")
 
@@ -53,8 +55,9 @@ func questions() {
 		fmt.Println("Great choice!")
 		score++
 	} else {
-		fmt.Println("You gotta study more")
+		fmt.Println("...")
 	}
+	//Question 3
 	time.Sleep(time.Second * 1)
 	fmt.Printf("Which one is bigger, Russia(1) or Canada(2)?\n")
 
@@ -64,8 +67,9 @@ func questions() {
 		fmt.Println("Great choice!")
 		score++
 	} else {
-		fmt.Println("You gotta study more")
+		fmt.Println("...")
 	}
+	//Question 4
 	time.Sleep(time.Second * 1)
 	fmt.Printf("Which one's the Capital of Brazil, São Paulo(1) or Brasilia(2)?\n")
 
@@ -75,8 +79,9 @@ func questions() {
 		fmt.Println("Great choice!")
 		score++
 	} else {
-		fmt.Println("You gotta study more")
+		fmt.Println("...")
 	}
+	//Question 5
 	time.Sleep(time.Second * 1)
 	fmt.Printf("Which one is bigger, Rio(1) or São Paulo(2)?\n")
 
@@ -86,8 +91,9 @@ func questions() {
 		fmt.Println("Great choice!")
 		score++
 	} else {
-		fmt.Println("You gotta study more")
+		fmt.Println("You gotta study more...")
 	}
+	//Result
 	time.Sleep(time.Second * 1)
 	fmt.Printf("Your score is %v out of %v.", score, num_of_questions)
 
@@ -95,7 +101,7 @@ func questions() {
 		time.Sleep(time.Second * 1)
 		fmt.Println("Congratulations for your score!")
 	} else {
-		fmt.Println("Sorry, good luck next time.")
+		fmt.Println("Sorry, better luck next time.")
 	}
 }
 
@@ -103,5 +109,4 @@ func main() {
 	welcome()
 	getUserData()
 	questions()
-
 }
