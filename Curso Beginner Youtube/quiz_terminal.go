@@ -28,6 +28,7 @@ func getUserData() {
 	} else {
 		time.Sleep(time.Second * 1)
 		fmt.Printf("Sorry %v, you're a minor and can't participate.", firstName)
+		time.Sleep(time.Second * 3)
 		os.Exit(0)
 	}
 }
@@ -55,7 +56,7 @@ func questions() {
 		fmt.Println("Great choice!")
 		score++
 	} else {
-		fmt.Println("...")
+		fmt.Println("You gotta study more...")
 	}
 	//Question 3
 	time.Sleep(time.Second * 1)
@@ -67,7 +68,7 @@ func questions() {
 		fmt.Println("Great choice!")
 		score++
 	} else {
-		fmt.Println("...")
+		fmt.Println("I don't think so...")
 	}
 	//Question 4
 	time.Sleep(time.Second * 1)
@@ -79,7 +80,7 @@ func questions() {
 		fmt.Println("Great choice!")
 		score++
 	} else {
-		fmt.Println("...")
+		fmt.Println("I don't think so...")
 	}
 	//Question 5
 	time.Sleep(time.Second * 1)
@@ -94,14 +95,16 @@ func questions() {
 		fmt.Println("You gotta study more...")
 	}
 	//Result
-	time.Sleep(time.Second * 1)
-	fmt.Printf("Your score is %v out of %v.", score, num_of_questions)
+	fmt.Printf("Your score is %v out of %v.\n", score, num_of_questions)
 
 	if score >= 3 {
-		time.Sleep(time.Second * 1)
 		fmt.Println("Congratulations for your score!")
+		time.Sleep(time.Second * 3)
+
 	} else {
 		fmt.Println("Sorry, better luck next time.")
+		time.Sleep(time.Second * 3)
+
 	}
 }
 

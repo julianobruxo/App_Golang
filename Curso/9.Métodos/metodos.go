@@ -8,16 +8,16 @@ type usuario struct {
 	nacionalidade string
 }
 
-func (user usuario) salvar() {
-	fmt.Printf("Salvando os dados de %s no banco de dados\n", user.nome)
+func (u usuario) salvar() {
+	fmt.Printf("Salvando os dados de %s no banco de dados\n", u.nome)
 }
-func (user usuario) maiorDeIdade() bool {
-	return user.idade >= 18
+func (u usuario) maiorDeIdade() bool {
+	return u.idade >= 18
 }
 
-func (user usuario) checarNacionalidade() bool {
+func (u usuario) checarNacionalidade() bool {
 	n1 := "Brasil"
-	if user.nacionalidade == n1 {
+	if u.nacionalidade == n1 {
 		return true
 	} else {
 		return false
@@ -25,17 +25,16 @@ func (user usuario) checarNacionalidade() bool {
 }
 
 func main() {
-	usuario1 := usuario{"Juliano Silva", 39, "Brasil"}
-	fmt.Println(usuario1)
-	usuario1.salvar()
+	user := usuario{"Juliano Silva", 17, "Brasil"}
+	fmt.Println(user)
+	user.salvar()
 
-	usuario2 := usuario{"Isabelle", 9, "Argentuno"}
-	usuario2.salvar()
-
-	maiorDeIdade := usuario2.maiorDeIdade()
+	//verificar idade
+	maiorDeIdade := user.maiorDeIdade()
 	fmt.Println(maiorDeIdade)
 
-	nacionalidadeUsuario := usuario2.checarNacionalidade()
+	//verificar nacionalidade
+	nacionalidadeUsuario := user.checarNacionalidade()
 	fmt.Println(nacionalidadeUsuario)
 
 }
