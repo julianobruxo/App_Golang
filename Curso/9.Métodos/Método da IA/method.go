@@ -10,27 +10,28 @@ type carro struct {
 	tabelaFipe   float64
 }
 
-func (c carro) receberMarca() {
+func (c *carro) receberMarca() {
+	fmt.Scan(&c.marca)
 	fmt.Printf("Veículo da marca %s recebido.", c.marca)
 }
 
-func (c carro) receberModelo() {
+func (c *carro) receberModelo() {
 	fmt.Printf("Veículo modelo %s recebido.", c.modelo)
 }
 
-func (c carro) receberAnoFabricacao() {
+func (c *carro) receberAnoFabricacao() {
 	fmt.Printf("Veículo modelo %d recebido.", c.ano)
 }
 
-func (c carro) receberValorDeVenda() {
+func (c *carro) receberValorDeVenda() {
 	fmt.Printf("Veículo modelo %v recebido.", c.valorDeVenda)
 }
 
-func (c carro) recebervalorTabelaFipe() {
+func (c *carro) recebervalorTabelaFipe() {
 	fmt.Printf("Veículo modelo %v recebido.", c.tabelaFipe)
 }
 
-func (c carro) verificarOportunidade() string {
+func (c *carro) verificarOportunidade() string {
 	if c.valorDeVenda < c.tabelaFipe {
 		return "Vale a pena comprar"
 	} else {
@@ -38,9 +39,12 @@ func (c carro) verificarOportunidade() string {
 	}
 }
 func main() {
-	veiculo := carro{"Peugeot", "2008 Allure", 2020, 95000, 90000}
+	veiculo := carro{"Peugeot", "2008", 2020, 95000, 91000}
+	message := "Seu veículo da marca %v , modelo %v , do ano %v ,"
+	message += "com valor de venda de %v , cuja tabela FIPE é %v, "
+	message += "recebeu a seguinte avaliação:\n"
 	fmt.Println(veiculo)
-	fmt.Printf("Seu veícuo da marca %v , modelo %v , do ano %v , com valor de venda de %v , cuja tabela FIPE é %v, recebeu a seguinte avaliação:\n", veiculo.marca, veiculo.modelo, veiculo.ano, veiculo.valorDeVenda, veiculo.tabelaFipe)
+	fmt.Printf(message, veiculo.marca, veiculo.modelo, veiculo.ano, veiculo.valorDeVenda, veiculo.tabelaFipe)
 	veiculo.verificarOportunidade()
 	fmt.Println(veiculo.verificarOportunidade())
 }
